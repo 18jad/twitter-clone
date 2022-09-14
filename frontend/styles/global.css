@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+:root {
+    --cyan: #1d9aef;
+    --white: #fefefe;
+    --black: #000000;
+    --gray: #919da4;
+    --red: #f93f93;
+}
+
 *,
 *::after,
 *::before {
