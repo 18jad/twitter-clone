@@ -1,0 +1,146 @@
+@import "./global.css";
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: var(--white);
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    background: inherit;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navigation-side-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 1px solid var(--light-gray);
+}
+
+.navigation-top {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+}
+
+.navigation-top a:nth-last-child(2) i {
+    color: var(--cyan);
+    margin-left: 10px;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: var(--btn-radius);
+    width: fit-content;
+    text-align: center;
+    transition: background 150ms ease-in-out;
+}
+
+.navigation-top a i:hover {
+    background: #1fc8fc2f;
+}
+
+.nav-list,
+.nav-list ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: var(--black);
+    gap: 15px;
+}
+
+.nav-list {
+    padding: 20px;
+    width: 230px;
+}
+
+.nav-list ul li {
+    list-style: none;
+}
+
+.nav-list ul li a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 12px 15px;
+    border-radius: var(--btn-radius);
+    gap: 17px;
+    transition: background 150ms ease-in-out;
+}
+
+.nav-list ul li a.active {
+    font-weight: 700;
+}
+
+.nav-list ul li a:hover {
+    background: var(--light-gray);
+}
+
+.tweet-btn {
+    background: var(--cyan);
+    color: var(--white);
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 15px 0;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: filter 150ms ease-in-out;
+}
+
+.tweet-btn:hover {
+    filter: brightness(.9);
+}
+
+.navigation-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+    border-radius: var(--btn-radius);
+    padding: 10px;
+    transition: background 150ms ease-in-out;
+}
+
+.navigation-bottom:hover {
+    background: var(--light-gray);
+}
+
+.navigation-bottom img {
+    height: 40px;
+    aspect-ratio: 1/1;
+    border-radius: var(--btn-radius);
+}
+
+.user-names {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 12px;
+    gap: 3px;
+}
+
+.full-name {
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+}
+
+.username {
+    color: var(--gray);
+}
