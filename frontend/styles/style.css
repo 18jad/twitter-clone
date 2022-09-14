@@ -1,0 +1,97 @@
+.landing-img{
+
+    height: 650px;
+    padding-left: 0px;
+}
+
+.column{
+    justify-content: space-evenly;
+}
+
+.flex {
+    display: flex;
+}
+
+img{
+    width: 755px;
+    margin-top: -10px;
+    margin-left: -40px;
+}
+
+h1{
+    font-size: 70px;
+    margin-top: 50px;
+}
+
+h2{
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+.blue-logo{
+    height: 45px;
+    width: 55px;
+    margin-top: 25px;
+}
+
+.left{
+    margin-left: 30px;
+}
+
+.btn{
+    border-radius: 5em;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid white;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #1D9BF0;
+    width: 330px;
+    margin-top: 50px;
+}
+
+.sign-in{
+    color: #1D9BF0;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.582);
+    margin-top: 15px;
+}
+
+.already{
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.inc{
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.footer{
+    margin-top: 50px;
+    font-size: 15px;
+    color: #7D7D7D;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 500px;
+    gap: 20px;
+    white-space: nowrap; 
+}
+
+.merge{
+    position: relative;
+}
+
+i{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 350px;
+}
+
