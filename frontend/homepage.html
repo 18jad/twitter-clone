@@ -37,7 +37,60 @@
                 <i class="fa-solid fa-ellipsis"></i>
             </div>
         </div>
-        <div></div>
+        <div class="feed-section">
+            <div class="tweeting-container">
+                <div class="page-title">Home</div>
+                <div class="post-container">
+                    <img src="https://pbs.twimg.com/profile_images/1505190392572125191/A3E8RtAQ_bigger.jpg"
+                        alt="profile picture" class="profile-picture bg">
+                    <form class="input-container">
+                        <textarea name="tweetText" id="tweetText" placeholder="What's happening?" required></textarea>
+                        <img src="" id="uploadedImage">
+                        <div class="tweet-btn-container">
+                            <button type="button" id="imageBtn"><i class="fa-regular fa-image"></i> Upload an
+                                image</button>
+                            <button type="submit">Tweet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="posts-container">
+                <div class="tweet">
+                    <a href=""><img
+                            src="https://assets-global.website-files.com/5ec7dad2e6f6295a9e2a23dd/6222481c0ad8761618b18e7e_profile-picture.jpg"
+                            alt="Profile picture" class="profile-picture md"></img></a>
+                    <div class="tweet-content">
+                        <div class="post-header">
+                            <div class="user-info">
+                                <a href=""><span class="full-name" id="fullName">Your name</span>
+                                    <span class="username" id="username">@your_username</span>
+                                    <span> - </span>
+                                    <span id="postTime" class="post-time">2h</span>
+                                </a>
+                            </div>
+                            <div class="tweet-setting">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit orci, laoreet eu
+                                molestie nec, laoreet id orci.
+                                Donec mattis, quam at faucibus aliquet, sem felis semper risus, sed egestas augue ante a
+                                dolor. Morbi ac placerat orci.
+                                Praesent congue pretium ultricies. Sed turpis erat, bibendum nec lobortis at, luctus id
+                                tortor.</p>
+                            <div class="post-image-container">
+                                <img src="" id="postImage">
+                            </div>
+                            <div class="likes-section">
+                                <button id="likeBtn" class="like-btn"> <i class="fa-regular fa-heart"></i><span
+                                        id="likeAmount">100</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div></div>
     </main>
 </body>
