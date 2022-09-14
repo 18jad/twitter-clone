@@ -5,7 +5,9 @@
     --white: #fefefe;
     --black: #000000;
     --gray: #919da4;
+    --light-gray: #e6e6e7;
     --red: #f93f93;
+    --btn-radius: 50px;
 }
 
 *:not(i),
