@@ -1,5 +1,8 @@
 /* Styling of landing page */
 
+main {
+    position: relative;
+}
 .landing-img{
     height: 650px;
     padding-left: 0px;
@@ -76,13 +79,18 @@ h2{
 }
 
 .footer{
-    margin-top: 50px;
+    margin-top: 100px;
     font-size: 15px;
     color: #7D7D7D;
     font-weight: bold;
     text-align: center;
     gap: 20px;
-    white-space: nowrap; 
+    white-space: nowrap;
+    flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: 100px auto 0 auto;
 }
 
 .merge{
@@ -102,22 +110,15 @@ h2{
 /* Start of styling sign in page */
 .close{
     font-size: 30px;
-    margin-top: -15px;
-    margin-left: -100px;
 }
 
-.logo{
-    position: absolute;
+.logo {
     color: #1D9BF0;
     font-size: 50px;
-    left: 42%;
-    margin-top: -15px;
 }
 
-.signin-sec{
-    height: 600px;
+.sign-up {
     position: absolute;
-    left: 35%;
 }
 
 .signin-form{
@@ -131,8 +132,7 @@ h2{
 
 .signin{
     background-color: black;
-    color: white;  
-    margin-top: 30px;
+    color: white;
 }
 
 .forgot{
@@ -140,9 +140,7 @@ h2{
     margin-top: 55px;
 }
 
-.signin-p{
-    margin-top: 35px;
-    margin-bottom: 100px;
+.signin-p {
     text-align: center;
     font-size: 18px;
     color: #545454;
@@ -151,11 +149,26 @@ h2{
 a{
     color:#1D9BF0
 }
-/* End of styling sign in page */
-.sign-up{
-    margin-top: 800px;
+.signin-popup,
+.signup-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    ;
 }
 
-.signup{
-    margin-top: 5px;
+.top-popup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
