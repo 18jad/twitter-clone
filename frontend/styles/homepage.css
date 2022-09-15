@@ -88,3 +88,54 @@
 .tweet-btn-container button[type="submit"]:hover {
     filter: brightness(.9);
 }
+/* 
+
+ RESPONSIVE DESIGN
+
+ SCREEN ONLY, WIDTH AVAILABLE:
+    WIDTH < 1000PX : SMALL DESKTOP SCREEN AND TABLETS
+    WIDTH < 600PX  : MOBILES
+
+ */
+
+.page-title-mobile {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--light-gray);
+    width: 100%;
+    padding: 14px;
+}
+
+@media screen and (max-width: 1000px) {
+    .navigation-side-right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page-title-mobile {
+        display: flex;
+    }
+
+    .page-title {
+        display: none;
+    }
+
+    .navigation-side-bar {
+        display: none;
+    }
+
+    .tweeting-container {
+        padding: 0;
+        gap: 0;
+    }
+
+    .post-container {
+        padding: 14px;
+    }
+
+    .post-container img {
+        display: none;
+    }
+}
