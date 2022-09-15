@@ -1,0 +1,160 @@
+@import "./global.css";
+
+.profile-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 13px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.profile-heading i {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.user-header-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-header-info .header-name,
+.tweets-counter-container {
+    font-size: 14px;
+}
+
+.tweets-counter-container {
+    color: var(--gray);
+}
+
+.profile-user-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 20px;
+}
+
+.user-background-image {
+    background: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    height: 250px;
+    max-height: 300px;
+    width: 100%;
+}
+
+.side-pic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    margin-top: -80px;
+}
+
+.first-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.side-pic img {
+    border: 8px solid var(--white);
+    cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.followers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 85px 0;
+}
+
+.followers span {
+    font-size: 14px;
+}
+
+a i {
+    text-decoration: none;
+    color: var(--black);
+}
+
+#profileEdit {
+    background: transparent;
+    color: var(--black);
+    border-radius: var(--btn-radius);
+    border: 1.3px solid currentColor;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 150ms ease-in-out;
+}
+
+#profileEdit:hover {
+    background: #0001;
+}
+
+
+.bio {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+    padding-bottom: 25px;
+}
+
+.bioUserNames {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bio .full-name,
+.bio .username {
+    font-size: 15px;
+}
+
+.bio .username {
+    color: var(--gray);
+}
+
+.bio-text,
+.bio-location {
+    font-size: 14px;
+}
+
+.bio-location {
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.viewed-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: -26px;
+    border-bottom: 4px solid var(--cyan);
+    width: 100px;
+    border-radius: 3px;
+    font-size: 15px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
