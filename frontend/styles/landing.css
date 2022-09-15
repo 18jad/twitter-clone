@@ -1,4 +1,4 @@
-/* Styling of landing page */
+/* Landing page */
 
 main {
     position: relative;
@@ -87,10 +87,10 @@ h2{
     gap: 20px;
     white-space: nowrap;
     flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        margin: 100px auto 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 100px auto 0 auto;
 }
 
 .merge{
@@ -105,9 +105,8 @@ h2{
     transform: translate(-50%, -50%);
     font-size: 350px;
 }
-/*End of landing page style */
 
-/* Start of styling sign in page */
+/* Sign in Sign up page */
 .close{
     font-size: 30px;
 }
@@ -149,6 +148,7 @@ h2{
 a{
     color:#1D9BF0
 }
+
 .signin-popup,
 .signup-popup {
     position: absolute;
@@ -156,14 +156,13 @@ a{
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fefefe;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 30px;
     border-radius: 10px;
     border: 1px solid black;
-    ;
 }
 
 .top-popup {
@@ -171,4 +170,8 @@ a{
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+
+.show{
+    display: flex;
 }
