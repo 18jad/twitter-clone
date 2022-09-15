@@ -89,7 +89,7 @@ a i {
     color: var(--black);
 }
 
-#profileEdit {
+.web-edit {
     background: transparent;
     color: var(--black);
     border-radius: var(--btn-radius);
@@ -101,7 +101,7 @@ a i {
     transition: background 150ms ease-in-out;
 }
 
-#profileEdit:hover {
+.web-edit:hover {
     background: #0001;
 }
 
@@ -132,6 +132,11 @@ a i {
     color: var(--gray);
 }
 
+.bio-text {
+    overflow-wrap: anywhere;
+    word-break: break-all;
+}
+
 .bio-text,
 .bio-location {
     font-size: 14px;
@@ -157,4 +162,66 @@ a i {
     font-size: 15px;
     padding-bottom: 5px;
     cursor: pointer;
+}
+/*  */
+
+.profile-pic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mobile-edit {
+    aspect-ratio: 1/1;
+    font-size: 16px;
+    padding: 0 9px;
+    border-radius: 50px;
+    border: none;
+    margin-top: -27px;
+    z-index: 10;
+    cursor: pointer;
+    background: var(--white);
+    box-shadow: inset 0 -3px 0 var(--light-gray);
+    display: none;
+}
+
+@media screen and (max-width: 740px) {
+    .web-edit {
+        display: none;
+    }
+
+    .mobile-edit {
+        display: block;
+        ;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .side-pic {
+        justify-content: center;
+    }
+
+    .first-part {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .followers {
+        margin: 0 0 18px 0;
+    }
+
+    .bio {
+        width: 100%;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .bio-text {
+        text-align: center;
+    }
+
+    .bioUserNames {
+        align-items: center;
+    }
 }
