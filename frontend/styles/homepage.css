@@ -96,6 +96,7 @@
     WIDTH < 1000PX : SMALL DESKTOP SCREEN AND TABLETS
     WIDTH < 600PX  : MOBILES
 
+ MORE @ global.css
  */
 
 .page-title-mobile {
@@ -107,12 +108,6 @@
     padding: 14px;
 }
 
-@media screen and (max-width: 1000px) {
-    .navigation-side-right {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 600px) {
     .page-title-mobile {
         display: flex;
@@ -122,20 +117,8 @@
         display: none;
     }
 
-    .navigation-side-bar {
-        display: none;
-    }
-
     .tweeting-container {
         padding: 0;
         gap: 0;
-    }
-
-    .post-container {
-        padding: 14px;
-    }
-
-    .post-container img {
-        display: none;
     }
 }

@@ -449,3 +449,32 @@ main {
     position: fixed;
     bottom: 18px;
 }
+/* 
+
+ RESPONSIVE DESIGN
+
+ SCREEN ONLY, WIDTH AVAILABLE:
+    WIDTH < 1000PX : SMALL DESKTOP SCREEN AND TABLETS
+    WIDTH < 600PX  : MOBILES
+
+*/
+
+@media screen and (max-width: 1000px) {
+    .navigation-side-right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navigation-side-bar {
+        display: none;
+    }
+
+    .post-container {
+        padding: 14px;
+    }
+
+    .post-container img {
+        display: none;
+    }
+}
