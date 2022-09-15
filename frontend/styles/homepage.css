@@ -4,13 +4,14 @@ body {
     height: 100vh;
     width: 100vw;
     background: var(--white);
+    overflow-x: hidden;
 }
 
 main {
     height: 100%;
     background: inherit;
     display: flex;
-    max-width: 80%;
+    width: 100%;
     justify-content: center;
 }
 
@@ -19,7 +20,8 @@ main {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    padding: 20px;
+    padding-top: 4px;
+    padding-bottom: 14px;
     border-right: 1px solid var(--light-gray);
 }
 
@@ -381,4 +383,112 @@ main {
 
 .like-btn.liked {
     color: var(--red);
+}
+
+.navigation-side-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 13px;
+    padding-left: 25px;
+}
+
+.top-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--light-gray);
+    background: #EFF3F4;
+    padding: 8px 20px;
+    width: 100%;
+    gap: 10px;
+    border-radius: var(--btn-radius);
+}
+
+.search-bar input {
+    padding: 5px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+}
+
+.search-bar i {
+    color: var(--gray);
+}
+
+.suggested-people {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background: #EFF3F4;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.suggested-people h3 {
+    padding: 5px 0;
+}
+
+.suggested-users {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.suggested-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.suggested-user-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.suggested-user-info .full-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.suggested-user-info .username {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+.followBtn {
+    background: var(--black);
+    color: var(--white);
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+.followBtn:hover {
+    opacity: 0.8;
+}
+
+footer {
+    font-size: 12px;
+    color: var(--gray);
 }
