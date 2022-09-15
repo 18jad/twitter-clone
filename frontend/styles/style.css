@@ -1,5 +1,6 @@
-.landing-img{
+/* Styling of landing page */
 
+.landing-img{
     height: 650px;
     padding-left: 0px;
 }
@@ -40,7 +41,7 @@ h2{
 
 .btn{
     border-radius: 5em;
-    padding-left: 50px;
+    padding-left: 27px;
     padding-right: 50px;
     border: 1px solid white;
     font-size: 18px;
@@ -69,6 +70,9 @@ h2{
 .inc{
     margin-top: 50px;
     margin-bottom: 80px;
+    color: #7D7D7D;
+    font-weight: bold;
+    text-align: center;
 }
 
 .footer{
@@ -77,7 +81,6 @@ h2{
     color: #7D7D7D;
     font-weight: bold;
     text-align: center;
-    margin-right: 500px;
     gap: 20px;
     white-space: nowrap; 
 }
@@ -86,7 +89,7 @@ h2{
     position: relative;
 }
 
-i{
+.white-logo{
     position: absolute;
     color: white;
     top: 50%;
@@ -94,4 +97,65 @@ i{
     transform: translate(-50%, -50%);
     font-size: 350px;
 }
+/*End of landing page style */
 
+/* Start of styling sign in page */
+.close{
+    font-size: 30px;
+    margin-top: -15px;
+    margin-left: -100px;
+}
+
+.logo{
+    position: absolute;
+    color: #1D9BF0;
+    font-size: 50px;
+    left: 42%;
+    margin-top: -15px;
+}
+
+.signin-sec{
+    height: 600px;
+    position: absolute;
+    left: 35%;
+}
+
+.signin-form{
+    border: 1px solid rgba(128, 128, 128, 0.582);
+    color: rgba(128, 128, 128, 0.582);
+    background-color: white;
+    font-weight: normal;
+    font-size: 15.5px;
+    margin-top: 30px;
+}
+
+.signin{
+    background-color: black;
+    color: white;  
+    margin-top: 30px;
+}
+
+.forgot{
+    color: black;
+    margin-top: 55px;
+}
+
+.signin-p{
+    margin-top: 35px;
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: 18px;
+    color: #545454;
+}
+
+a{
+    color:#1D9BF0
+}
+/* End of styling sign in page */
+.sign-up{
+    margin-top: 800px;
+}
+
+.signup{
+    margin-top: 5px;
+}
