@@ -1,20 +1,5 @@
 @import "./global.css";
 
-body {
-    height: 100vh;
-    width: 100vw;
-    background: var(--white);
-    overflow-x: hidden;
-}
-
-main {
-    height: 100%;
-    background: inherit;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
 .tweeting-container {
     display: flex;
     flex-direction: column;

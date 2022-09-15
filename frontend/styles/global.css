@@ -28,6 +28,21 @@ li {
     font-family: inherit;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+main {
+    height: 100%;
+    background: inherit;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .navigation-side-bar {
     display: flex;
     align-items: center;
