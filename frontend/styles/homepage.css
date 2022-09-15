@@ -23,12 +23,16 @@ main {
     padding-top: 4px;
     padding-bottom: 14px;
     border-right: 1px solid var(--light-gray);
+
 }
 
 .navigation-top {
     display: flex;
     justify-content: end;
     flex-direction: column;
+    position: sticky;
+    align-self: flex-start;
+    top: 5px;
 }
 
 .navigation-top a:nth-last-child(2) i {
@@ -115,6 +119,8 @@ main {
     border-radius: var(--btn-radius);
     padding: 10px;
     transition: background 150ms ease-in-out;
+    position: fixed;
+    bottom: 13px;
 }
 
 .navigation-bottom:hover {
@@ -392,6 +398,9 @@ main {
     flex-direction: column;
     padding: 13px;
     padding-left: 25px;
+    position: sticky;
+    align-self: flex-start;
+    top: 0;
 }
 
 .top-side {
@@ -491,4 +500,6 @@ main {
 footer {
     font-size: 12px;
     color: var(--gray);
+    position: fixed;
+    bottom: 18px;
 }
