@@ -38,22 +38,45 @@
             </div>
         </div>
         <div class="feed-section">
-            <div class="tweeting-container">
-                <div class="page-title">Home</div>
-                <div class="post-container">
-                    <img src="https://pbs.twimg.com/profile_images/1505190392572125191/A3E8RtAQ_bigger.jpg"
-                        alt="profile picture" class="profile-picture bg">
-                    <form class="input-container">
-                        <textarea name="tweetText" id="tweetText" placeholder="What's happening?" required></textarea>
-                        <img src="" id="uploadedImage">
-                        <div class="tweet-btn-container">
-                            <button type="button" id="imageBtn"><i class="fa-regular fa-image"></i> Upload an
-                                image</button>
-                            <button type="submit">Tweet</button>
-                        </div>
-                    </form>
+            <div class="profile-heading">
+                <a href="./homepage.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <div class="user-header-info">
+                    <div class="header-name bold">Your name</div>
+                    <div class="tweets-counter-container"><span id="tweets-counter">100</span> Tweets</div>
                 </div>
             </div>
+            <div class="profile-user-info">
+                <div class="user-background-image" id="userBackgroundImage"></div>
+                <div class="side-pic">
+                    <div class="first-part">
+                        <img src="https://assets-global.website-files.com/5ec7dad2e6f6295a9e2a23dd/6222481c0ad8761618b18e7e_profile-picture.jpg"
+                            alt="profile picture" class="profile-picture vbg">
+                        <div class="followers">
+                            <span>
+                                <span class="following-counter bold">100 </span>
+                                Following
+                            </span>
+                            <span>
+                                <span class="followers-counter bold">100 </span>
+                                Followers
+                            </span>
+                        </div>
+                    </div>
+                    <button id="profileEdit">Edit Profile</button>
+                </div>
+                <div class="bio">
+                    <div class="bioUserNames">
+                        <p class="full-name bold" id="bioFullName">Your name</p>
+                        <p class="username" id="bioUsername">@your_username</p>
+                    </div>
+                    <p class="bio-text">This is your bio</p>
+                    <p class="bio-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span id="bioLocation">Your location</span>
+                    </p>
+                </div>
+            </div>
+            <div class="viewed-section bold">Tweets</div>
             <div class="posts-container">
                 <div class="tweet">
                     <a href=""><img
