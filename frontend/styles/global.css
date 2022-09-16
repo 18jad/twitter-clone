@@ -450,6 +450,7 @@ main {
     position: fixed;
     bottom: 18px;
 }
+
 /* 
 
  RESPONSIVE DESIGN
@@ -475,7 +476,7 @@ main {
         padding: 14px;
     }
 
-    .post-container img {
+    .post-container .profile-picture {
         display: none;
     }
 }
