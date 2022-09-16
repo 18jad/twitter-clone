@@ -147,6 +147,18 @@
     border: 2px solid var(--light-gray);
 }
 
+#uploadedImageInput {
+    display: none;
+    opacity: 0;
+}
+
+.imageFileName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
 /* 
 
  RESPONSIVE DESIGN
