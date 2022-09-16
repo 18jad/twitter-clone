@@ -54,8 +54,12 @@
                         <textarea name="tweetText" id="tweetText" placeholder="What's happening?" required></textarea>
                         <img src="" id="uploadedImage">
                         <div class="tweet-btn-container">
-                            <button type="button" id="imageBtn"><i class="fa-regular fa-image"></i> Upload an
-                                image</button>
+                            <input type="file" name="image" id="uploadedImageInput" accept="image/*">
+                            <button type="button" id="imageBtn"><i class="fa-regular fa-image"></i> <span
+                                    class="imageFileName">
+                                    Upload an image
+                                </span>
+                            </button>
                             <button type="submit">Tweet</button>
                         </div>
                     </form>
