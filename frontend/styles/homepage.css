@@ -88,6 +88,50 @@
 .tweet-btn-container button[type="submit"]:hover {
     filter: brightness(.9);
 }
+
+.tweet-modal-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    pointer-events: none;
+    transition: background 150ms ease-in-out;
+}
+
+.tweet-modal {
+    position: absolute;
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    translate: 0 -300px;
+    opacity: 0;
+    transition: translate 250ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.show-modal-container {
+    background: #4d9add46;
+    pointer-events: unset;
+}
+
+.show-modal {
+    translate: 0 0;
+    opacity: 1;
+}
+
+.tweet-modal textarea {
+    height: 200px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 /* 
 
  RESPONSIVE DESIGN
