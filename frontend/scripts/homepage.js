@@ -1,10 +1,12 @@
+// Elements constants
 const tweetModalContainer = document.querySelector('.tweet-modal-container'),
     tweetModal = document.querySelector('.tweet-modal'),
     openTweetModalBtn = document.querySelector('.tweet-btn'),
     closeTweetModalBtn = document.getElementById('closeModal'),
     uploadImageBtn = document.getElementById('imageBtn'),
     uploadImageInput = document.getElementById('uploadedImageInput'),
-    uploadedImage = document.getElementById('uploadedImage');
+    uploadedImage = document.getElementById('uploadedImage'),
+    tweetTextAreas = document.querySelectorAll('#tweetTextArea');
 
 /*
     Tweet Modal:
@@ -37,10 +39,11 @@ openTweetModalBtn.addEventListener('click', openModal);
 closeTweetModalBtn.addEventListener('click', closeModal);
 
 /*
-    Upload button:
-        - Upload file input
-        - Load image name on upload button
-        - Load image under text area
+    Tweeting section;
+        Upload button:
+            - Upload file input
+            - Load image name on upload button
+            - Load image under text area
 */
 
 let uploadedImageName, uploadedImageType, uploadedImageSize;
@@ -76,3 +79,28 @@ uploadImageBtn.addEventListener('click', () => {
         }
     }
 })
+
+/* 
+    Tweeting section;
+        Text input:
+            - Resize the height based on content and text input
+*/
+
+const resizeOnInput = (input) => {
+    // if textarea is empty set initial height to 44
+    input.style.height = "44px";
+    // increase height based on textarea scrollHeight
+    input.style.height = (input.scrollHeight) + "px";
+    // if height is bigger than max height enable scrolling bar else disable it
+    if (parseInt(input.style.height.split('px')[0]) >= parseInt(input.style.maxHeight.split('px')[0])) {
+        input.style.overflowY = "auto";
+    } else {
+        input.style.overflowY = "hidden";
+    }
+}
+
+tweetTextAreas.forEach(textArea => {
+    textArea.setAttribute("style", "height:" + (textArea.scrollHeight) + "px; max-height: 400px; overflow: hidden;");
+    textArea.addEventListener("input", () => resizeOnInput(textArea), false);
+})
+
