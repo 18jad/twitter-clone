@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="shortcut icon" href="./assets/blue-logo.png" type="image/png" />
     <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/homepage.js" defer></script>
     <title>Home / Twitter</title>
 </head>
 
@@ -124,6 +125,7 @@
         </div>
         <div class="tweet-modal-container">
             <div class="tweet-modal">
+                <i class="fa-solid fa-xmark" id="closeModal"></i>
                 <form class="input-container" id="post_form">
                     <textarea name="tweetText" id="tweetText" placeholder="What's happening?" required></textarea>
                     <img src="" id="uploadedImage">
