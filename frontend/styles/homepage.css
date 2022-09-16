@@ -36,6 +36,10 @@
     outline: none;
     font-size: 18px;
     resize: none;
+    border-radius: 5px;
+    padding: 3px 3px 0 5px;
+    border: 1px solid transparent;
+    transition: background 0.15s ease-in-out, border 0.15s ease-in-out;
 }
 
 #uploadedImage {

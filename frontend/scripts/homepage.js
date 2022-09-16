@@ -99,8 +99,21 @@ const resizeOnInput = (input) => {
     }
 }
 
+const checkMaxCharacters = (input) => {
+    if (input.value.length == input.maxLength) {
+        input.style.background = "rgba(247, 65, 65, 0.2)";
+        input.style.borderColor = "red";
+    } else {
+        input.style.border = "1px solid transparent";
+        input.style.background = "var(--white)";
+    }
+}
+
 tweetTextAreas.forEach(textArea => {
     textArea.setAttribute("style", "height:" + (textArea.scrollHeight) + "px; max-height: 400px; overflow: hidden;");
-    textArea.addEventListener("input", () => resizeOnInput(textArea), false);
+    textArea.addEventListener("input", () => {
+        resizeOnInput(textArea);
+        checkMaxCharacters(textArea);
+    }, false);
 })
 
