@@ -172,3 +172,28 @@ const signOut = () => {
 }
 
 signOutBtn.onclick = signOut;
+
+
+/*
+
+    Load user info:
+        - Load username and name on page load
+
+*/
+
+const fullNameText = document.getElementById('fullName'),
+    usernameText = document.getElementById('username');
+
+const getUserDetails = (user_id) => {
+    fetch(`/twitter-clone/backend/getUserInfo.php/?user_id=${user_id}`)
+        .then(res => res.json())
+        .then((data) => {
+            fullNameText.textContent = data.fullName;
+            usernameText.textContent = `@${data.username}`;
+        })
+}
+
+window.onload = () => {
+    let user_id = getCookie('user_id');
+    getUserDetails(user_id)
+}
