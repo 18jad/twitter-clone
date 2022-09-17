@@ -1,31 +1,47 @@
-const signUpBtn = document.querySelector('.sign-up-btn');
-const signUpModal = document.querySelector('.sign-up-modal');
-const signInBtn = document.querySelector('.sign-in-btn');
-const signInModal = document.querySelector('.sign-in-modal');
-const closeSignUpModal = document.getElementById('close_sign_up_modal');
-const closeSignInModal = document.getElementById('close_sign_in_modal');
 
-const showModal = (modal) => {
-    modal.classList.add('show-modal');
-}
+/* 
+    Modal: 
+        -Open and close modal
+        -Switch between modals
+*/
+const signUpBtn        = document.querySelector('.sign-up-btn'),
+      signUpModal      = document.querySelector('.sign-up-modal'),
+      signInBtn        = document.querySelector('.sign-in-btn'),
+      signInModal      = document.querySelector('.sign-in-modal'),
+      closeSignUpModal = document.getElementById('close_sign_up_modal'),
+      closeSignInModal = document.getElementById('close_sign_in_modal'),
+      signInSwitch     = document.querySelector('.sign-in-switch'),
+      signUpSwitch     = document.querySelector('.sign-up-switch');
+
 
 const hideModal = (modal) => {
     modal.classList.remove('show-modal');
+}
+
+const showModal = (modal, closeModal = null) => {
+    if (modal != null) {
+        if (closeModal.classList.contains('show-modal')) {
+            hideModal(closeModal)
+        }
+    }
+    modal.classList.add('show-modal');
 }
 
 closeSignInModal.onclick = () => hideModal(signInModal)
 closeSignUpModal.onclick = () => hideModal(signUpModal)
 
 signUpBtn.addEventListener('click', () => {
-    if (signInModal.classList.contains('show-modal')) {
-        hideModal(signInModal)
-    }
-    showModal(signUpModal)
+    showModal(signUpModal, signInModal)
+})
+
+signUpSwitch.addEventListener('click', () => {
+    showModal(signUpModal, signInModal)
 })
 
 signInBtn.addEventListener('click', () => {
-    if (signUpModal.classList.contains('show-modal')) {
-        hideModal(signUpModal)
-    }
-    showModal(signInModal)
+    showModal(signInModal, signUpModal)
+})
+
+signInSwitch.addEventListener('click', () => {
+    showModal(signInModal, signUpModal)
 })
