@@ -371,18 +371,19 @@ input,
     pointer-events: unset;
 }
 
-#signUpResult {
+#signUpResult,
+#signInResult {
     font-size: 16px;
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
 }
 
-.success-sign-up {
+.success-sign {
     background: rgb(126, 241, 126);
 }
 
-.failed-sign-up {
+.failed-sign {
     background: rgb(255, 93, 93);
 }
 
