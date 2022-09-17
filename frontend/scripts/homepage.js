@@ -160,7 +160,7 @@ const delete_cookie = (name) => {
 }
 
 const redirectToLanding = () => {
-    if (auth_token == null || !auth_token) {
+    if (document.cookie.indexOf('auth_token=') == -1) {
         window.location = '/twitter-clone/frontend/';
     }
 }
