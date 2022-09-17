@@ -46,7 +46,13 @@ closeTweetModalBtn.addEventListener('click', closeModal);
             - Load image under text area
 */
 
-let uploadedImageName, uploadedImageType, uploadedImageSize;
+let uploadedImageName,
+    uploadedImageType,
+    uploadedImageSize,
+    base64Image;
+
+// to read and get image base64
+const imageReader = new FileReader();
 
 // click hidden file input
 const tirggerUploadImage = () => {
@@ -67,10 +73,13 @@ uploadImageBtn.addEventListener('click', () => {
         if (uploadImageInput.files.length == 0) {
             uploadedImageName = null;
             updateBtnName("No image uploaded");
+            uploadedImage.src = "";
             throw new Error('No image uploaded');
         }
         // if a file is chosen store some info about it and change button text
         if (uploadImageInput.value && uploadImageInput.value.trim().length > 0 && uploadImageInput.files.length > 0) {
+            imageReader.readAsDataURL(uploadImageInput.files[0]);
+            base64Image = imageReader.result;
             uploadedImageName = uploadedFileDetails.name || uploadImageInput.value.split("\\").pop();
             uploadedImageType = uploadedFileDetails.type || null;
             uploadedImageSize = uploadedFileDetails.size || null;
