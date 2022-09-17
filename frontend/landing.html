@@ -54,11 +54,13 @@
                         <i class="fa-brands fa-twitter logo"></i><br>
                     </div>
                     <h2>Sign in to Twitter</h2><br>
-                    <input type="text" name="name" class="signin-form btn" placeholder="Sign in with email or username"><br>
-                    <input type="text" name="password" class="signin-form btn" placeholder="Password"><br>
-                    <button class="btn sign-in signin">Sign in</button><br>
-                    <button class="btn sign-in forgot">Forgot password?</button><br>
-                    <p class="signin-p">Don't have an account? <a>Sign up</a></p>
+                    <form name="myForm"  method="POST" action="connection.php">
+                        <input type="text" name="user_name" class="signin-form btn" placeholder="Sign in with email or username"><br>
+                        <input type="text" name="password" class="signin-form btn" placeholder="Password"><br>
+                        <button name="signin" type="submit" class="btn sign-in signin">Sign in</button><br>
+                        <button class="btn sign-in forgot">Forgot password?</button><br>
+                        <p class="signin-p">Don't have an account? <a>Sign up</a></p>
+                    </form>
                 </div>
         <!-- End of sign in page-->
         <!-- Start of sign up page-->
@@ -68,12 +70,14 @@
                     <i class="fa-brands fa-twitter logo"></i><br>
                 </div>
                 <h2>Join Twitter today</h2><br>
-                <input type="text" name="name" class="signin-form btn signup" placeholder="Enter your full name"><br>
-                <input type="text" name="username" class="signin-form btn" placeholder="Choose your username"><br>
-                <input type="text" name="email" class="signin-form btn" placeholder="Enter your email address"><br>
-                <input type="text" name="password" class="signin-form btn" placeholder="New password"><br>
-                <button class="btn sign-in signin">Sign up</button><br>
-                <p class="signin-p">Have an account already?<a>Log in</a></p>
+                <form name="myForm"  method="POST" action="connection.php">
+                    <input type="text" name="name" class="signin-form btn signup" placeholder="Enter your full name"><br>
+                    <input type="text" name="username" class="signin-form btn" placeholder="Choose your username"><br>
+                    <input type="text" name="email" class="signin-form btn" placeholder="Enter your email address"><br>
+                    <input type="text" name="new_password" class="signin-form btn" placeholder="New password"><br>
+                    <button name="submit" type="submit" class="btn sign-in signin">Sign up</button><br>
+                    <p class="signin-p">Have an account already?<a>Log in</a></p>
+                </form>
             </div>
         </section>
         <!-- End of sign up page-->
