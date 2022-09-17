@@ -155,7 +155,7 @@ signInForm.addEventListener('submit', (e) => {
 */
 
 const redirectToHome = () => {
-    if (auth_token != null || auth_token) {
+    if (document.cookie.indexOf('auth_token=') > 0 || auth_token != null || auth_token) {
         window.location = '/twitter-clone/frontend/homepage.html';
     }
 }
