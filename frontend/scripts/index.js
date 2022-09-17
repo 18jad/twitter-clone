@@ -148,3 +148,25 @@ signInForm.addEventListener('submit', (e) => {
     logIn(signInEmail.value, signInPassword.value);
 })
 
+/*
+    Check if user is logged in if yes redirect to home page
+        - Get cookie by name
+        - Check auth using cookie
+*/
+
+const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    else return null;
+}
+
+let auth_token = getCookie('auth_token');
+
+const redirectToHome = () => {
+    if (auth_token != null || auth_token) {
+        window.location = '/twitter-clone/frontend/homepage.html';
+    }
+}
+
+redirectToHome();
