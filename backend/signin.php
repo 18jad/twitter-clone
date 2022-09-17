@@ -16,14 +16,14 @@ if (isset($_POST['email'], $_POST['password'])) {
     // store auth token when user sign in
     $auth_token_sql = "UPDATE users SET auth_token=UUID() WHERE email='$email'";
     // store user id
-    $user_id_sql = "SELECT user_id FROM users WHERE email='$email'";
+    $user_id_sql = "SELECT `user_id` FROM users WHERE email='$email'";
     // if user is logging in with username instead email, switch variable to username and change the query
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $username = $email;
         // get password by usename
         $user_hashed_password_sql = "SELECT password FROM users WHERE username='$username'";
         $auth_token_sql           = "UPDATE users SET auth_token=UUID() WHERE username='$username'";
-        $user_id_sql = "SELECT user_id FROM users WHERE username='$username'";
+        $user_id_sql = "SELECT `user_id` FROM users WHERE username='$username'";
     }
     // fetch the query and get the hashed password
     $user_hashed_password_query = mysqli_query($db, $user_hashed_password_sql)->fetch_row();
@@ -44,7 +44,7 @@ if (isset($_POST['email'], $_POST['password'])) {
             $auth_token      = $get_token_query[0];
 
             $user_id_query = mysqli_query($db, $user_id_sql)->fetch_row();
-            $used_id = $user_id_query[0];
+            $user_id = $user_id_query[0];
             // store the token in cookies
             setcookie("auth_token", $auth_token, time() + (86400 * 30), "/");
             setcookie("user_id", $user_id, time() + (86400 * 30), "/");
