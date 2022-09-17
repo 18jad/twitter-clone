@@ -148,3 +148,27 @@ const observer = new IntersectionObserver((entries) => {
 })
 
 tweets.forEach(tweet => observer.observe(tweet))
+
+/*
+    Sign out button
+*/
+
+const signOutBtn = document.getElementById('signOutBtn');
+
+const delete_cookie = (name) => {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+const redirectToLanding = () => {
+    if (auth_token == null || !auth_token) {
+        window.location = '/twitter-clone/frontend/';
+    }
+}
+
+const signOut = () => {
+    delete_cookie('auth_token');
+    delete_cookie('user_id');
+    redirectToLanding();
+}
+
+signOutBtn.onclick = signOut;
