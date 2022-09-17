@@ -36,7 +36,6 @@ body {
 }
 
 main {
-    height: 100%;
     background: inherit;
     display: flex;
     width: 100%;
@@ -215,6 +214,14 @@ main {
     padding: 14px;
     width: 100%;
     border-bottom: 1px solid var(--light-gray);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.show-tweet {
+    transform: translateY(0px);
+    opacity: 1;
 }
 
 .tweet-content {
@@ -450,6 +457,13 @@ main {
     position: fixed;
     bottom: 18px;
 }
+
+@media(prefers-reduced-motion) {
+    .tweet {
+        transition: 0;
+    }
+}
+
 /* 
 
  RESPONSIVE DESIGN
@@ -475,7 +489,7 @@ main {
         padding: 14px;
     }
 
-    .post-container img {
+    .post-container .profile-picture {
         display: none;
     }
 }
