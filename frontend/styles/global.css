@@ -214,6 +214,14 @@ main {
     padding: 14px;
     width: 100%;
     border-bottom: 1px solid var(--light-gray);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.show-tweet {
+    transform: translateY(0px);
+    opacity: 1;
 }
 
 .tweet-content {
@@ -448,6 +456,12 @@ main {
     color: var(--gray);
     position: fixed;
     bottom: 18px;
+}
+
+@media(prefers-reduced-motion) {
+    .tweet {
+        transition: 0;
+    }
 }
 
 /* 

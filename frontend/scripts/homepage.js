@@ -84,6 +84,7 @@ uploadImageBtn.addEventListener('click', () => {
     Tweeting section;
         Text input:
             - Resize the height based on content and text input
+            - Add red effect when reaching max characters (280)
 */
 
 const resizeOnInput = (input) => {
@@ -100,10 +101,12 @@ const resizeOnInput = (input) => {
 }
 
 const checkMaxCharacters = (input) => {
+    // check if we reached max characters if yes show red effect
     if (input.value.length == input.maxLength) {
         input.style.background = "rgba(247, 65, 65, 0.2)";
         input.style.borderColor = "red";
     } else {
+        // remove red effect
         input.style.border = "1px solid transparent";
         input.style.background = "var(--white)";
     }
@@ -117,3 +120,22 @@ tweetTextAreas.forEach(textArea => {
     }, false);
 })
 
+
+/*
+    Tweets:
+        -Tweet anmation when entering the screen
+*/
+
+const tweets = document.querySelectorAll('.tweet');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show-tweet')
+        } else {
+            entry.target.classList.remove('show-tweet')
+        }
+    })
+})
+
+tweets.forEach(tweet => observer.observe(tweet))
