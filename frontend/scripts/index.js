@@ -76,8 +76,8 @@ const createUser = (fullname, username, email, password, repeatedPassword) => {
     fetch('/twitter-clone/backend/signup.php', settings).then(res => res.json()).then(data => {
         let status = data.status;
         if (status == 200) {
-            signUpResult.classList.remove('failed-sign-up');
-            signUpResult.classList.add('success-sign-up');
+            signUpResult.classList.remove('failed-sign');
+            signUpResult.classList.add('success-sign');
             fullName.value        = ""
             signUpUsername.value  = ""
             signUpEmail.value     = ""
@@ -85,10 +85,12 @@ const createUser = (fullname, username, email, password, repeatedPassword) => {
             confirmPassword.value = ""
             setTimeout(() => {
                 signUpResult.textContent = "";
+                signUpResult.classList.remove('success-sign');
+                signUpResult.classList.remove('failed-sign');
             }, 3000)
         } else {
-            signUpResult.classList.remove('success-sign-up');
-            signUpResult.classList.add('failed-sign-up');
+            signUpResult.classList.remove('success-sign');
+            signUpResult.classList.add('failed-sign');
         }
         signUpResult.textContent = data.message;
     })
@@ -97,5 +99,52 @@ const createUser = (fullname, username, email, password, repeatedPassword) => {
 signUpForm.addEventListener('submit', (e) => {
     e.preventDefault();
     createUser(fullName.value, signUpUsername.value, signUpEmail.value, signUpPassword.value, confirmPassword.value)
+})
+
+/*
+    Sign In: 
+        - Check inputs and apply conditions
+        - Fetch api and get user details from database
+        - Show success / error message
+*/
+
+const signInForm     = document.getElementById('signInForm'),
+      signInEmail    = document.getElementById('signInEmail'),
+      signInPassword = document.getElementById('signInPassword'),
+      signInResult   = document.getElementById('signInResult');
+
+const logIn = (email, password) => {
+    const settings = {
+        method: "POST",
+        body  : new URLSearchParams({
+            email,
+            password
+        })
+    }
+
+    fetch('/twitter-clone/backend/signin.php', settings).then(res => res.json()).then(data => {
+        let status = data.status;
+        if (status == 200) {
+            signInResult.classList.remove('failed-sign');
+            signInResult.classList.add('success-sign');
+            signInEmail.value    = ""
+            signInPassword.value = ""
+            setTimeout(() => {
+                window.location          = '/twitter-clone/frontend/homepage.html'
+                signInResult.textContent = "";
+                signInResult.classList.remove('success-sign');
+                signInResult.classList.remove('failed-sign');
+            }, 3000)
+        } else {
+            signInResult.classList.remove('success-sign');
+            signInResult.classList.add('failed-sign');
+        }
+        signInResult.textContent = data.message;
+    })
+}
+
+signInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    logIn(signInEmail.value, signInPassword.value);
 })
 
