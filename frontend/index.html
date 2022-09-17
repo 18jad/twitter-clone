@@ -41,8 +41,9 @@
             </header>
             <div class="sign-in-form">
                 <h2>Sign in to Twitter</h2>
-                <form class="form-inputs">
-                    <input type="email" name="email" id="signInEmail" placeholder="Enter your email" required>
+                <form class="form-inputs" id="signInForm">
+                    <input type="text" name="email" id="signInEmail" placeholder="Enter your email or username"
+                        required>
                     <input type="password" name="password" id="signInPassword" placeholder="Enter your password"
                         required>
                     <button class="form-sign-in-btn">Sign in</button>
@@ -58,9 +59,11 @@
             </header>
             <div class="sign-up-form">
                 <h2>Sign up to Twitter</h2>
-                <form class="form-inputs">
+                <p id="signUpResult" class="failed-sign-up">User registration succesfully completed, please sign in.
+                </p>
+                <form class="form-inputs" id="signUpForm">
                     <input type="text" name="fullname" id="fullName" placeholder="Enter your full name" required>
-                    <input type="text" name="username" id="userName" placeholder="Choose a username" required>
+                    <input type="text" name="username" id="signUpUsername" placeholder="Choose a username" required>
                     <input type="email" name="email" id="signUpEmail" placeholder="Enter your email address" required>
                     <input type="password" name="password" id="signUpPassword" placeholder="New password" required>
                     <input type="password" name="repeatedPassword" id="signUpConfirmPassword"
