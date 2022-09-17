@@ -4,14 +4,14 @@
         - Open and close modal
         - Switch between modals
 */
-const signUpBtn        = document.querySelector('.sign-up-btn'),
-      signUpModal      = document.querySelector('.sign-up-modal'),
-      signInBtn        = document.querySelector('.sign-in-btn'),
-      signInModal      = document.querySelector('.sign-in-modal'),
-      closeSignUpModal = document.getElementById('close_sign_up_modal'),
-      closeSignInModal = document.getElementById('close_sign_in_modal'),
-      signInSwitch     = document.querySelector('.sign-in-switch'),
-      signUpSwitch     = document.querySelector('.sign-up-switch');
+const signUpBtn = document.querySelector('.sign-up-btn'),
+    signUpModal = document.querySelector('.sign-up-modal'),
+    signInBtn = document.querySelector('.sign-in-btn'),
+    signInModal = document.querySelector('.sign-in-modal'),
+    closeSignUpModal = document.getElementById('close_sign_up_modal'),
+    closeSignInModal = document.getElementById('close_sign_in_modal'),
+    signInSwitch = document.querySelector('.sign-in-switch'),
+    signUpSwitch = document.querySelector('.sign-up-switch');
 
 
 const hideModal = (modal) => {
@@ -53,19 +53,19 @@ signInSwitch.addEventListener('click', () => {
         - Show success / error message
 */
 
-const signUpForm      = document.getElementById("signUpForm"),
-      fullName        = document.getElementById('fullName'),
-      signUpUsername  = document.getElementById('signUpUsername'),
-      signUpEmail     = document.getElementById('signUpEmail'),
-      signUpPassword  = document.getElementById('signUpPassword'),
-      confirmPassword = document.getElementById('signUpConfirmPassword'),
-      signUpResult    = document.getElementById('signUpResult');
+const signUpForm = document.getElementById("signUpForm"),
+    fullName = document.getElementById('fullName'),
+    signUpUsername = document.getElementById('signUpUsername'),
+    signUpEmail = document.getElementById('signUpEmail'),
+    signUpPassword = document.getElementById('signUpPassword'),
+    confirmPassword = document.getElementById('signUpConfirmPassword'),
+    signUpResult = document.getElementById('signUpResult');
 
 const createUser = (fullname, username, email, password, repeatedPassword) => {
     const settings = {
         // full_name, username, email, `password`
         method: 'POST',
-        body  : new URLSearchParams({
+        body: new URLSearchParams({
             "fullname": fullname,
             username,
             email,
@@ -78,10 +78,10 @@ const createUser = (fullname, username, email, password, repeatedPassword) => {
         if (status == 200) {
             signUpResult.classList.remove('failed-sign');
             signUpResult.classList.add('success-sign');
-            fullName.value        = ""
-            signUpUsername.value  = ""
-            signUpEmail.value     = ""
-            signUpPassword.value  = ""
+            fullName.value = ""
+            signUpUsername.value = ""
+            signUpEmail.value = ""
+            signUpPassword.value = ""
             confirmPassword.value = ""
             setTimeout(() => {
                 signUpResult.textContent = "";
@@ -108,15 +108,15 @@ signUpForm.addEventListener('submit', (e) => {
         - Show success / error message
 */
 
-const signInForm     = document.getElementById('signInForm'),
-      signInEmail    = document.getElementById('signInEmail'),
-      signInPassword = document.getElementById('signInPassword'),
-      signInResult   = document.getElementById('signInResult');
+const signInForm = document.getElementById('signInForm'),
+    signInEmail = document.getElementById('signInEmail'),
+    signInPassword = document.getElementById('signInPassword'),
+    signInResult = document.getElementById('signInResult');
 
 const logIn = (email, password) => {
     const settings = {
         method: "POST",
-        body  : new URLSearchParams({
+        body: new URLSearchParams({
             email,
             password
         })
@@ -127,10 +127,10 @@ const logIn = (email, password) => {
         if (status == 200) {
             signInResult.classList.remove('failed-sign');
             signInResult.classList.add('success-sign');
-            signInEmail.value    = ""
+            signInEmail.value = ""
             signInPassword.value = ""
             setTimeout(() => {
-                window.location          = '/twitter-clone/frontend/homepage.html'
+                window.location = '/twitter-clone/frontend/homepage.html'
                 signInResult.textContent = "";
                 signInResult.classList.remove('success-sign');
                 signInResult.classList.remove('failed-sign');
@@ -153,15 +153,6 @@ signInForm.addEventListener('submit', (e) => {
         - Get cookie by name
         - Check auth using cookie
 */
-
-const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    else return null;
-}
-
-let auth_token = getCookie('auth_token');
 
 const redirectToHome = () => {
     if (auth_token != null || auth_token) {
