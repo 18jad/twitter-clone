@@ -22,6 +22,15 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
         return (mysqli_num_rows($username_query) >= 1);
     }
 
+    // check if email already exists in database
+    function checkEmail($email)
+    {
+        global $db;
+        $email_check_sql = "SELECT username FROM users WHERE email = '$email'";
+        $email_query = mysqli_query($db, $email_check_sql);
+        return (mysqli_num_rows($email_query) >= 1);
+    }
+
     try {
         // check if passwords are identical
         if ($password !== $repeatedPassword) {
@@ -39,7 +48,9 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
         } else {
             // if username already exist throw error
             if (checkUsername($username)) {
-                throw new Exception("Username already take");
+                throw new Exception("Username already taken");
+            } else if (checkEmail($email)) {
+                throw new Exception("Email already taken");
             }
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $sql_query = "INSERT INTO users(full_name, username, email, `password`) VALUE(?, ?, ?, ?)";
