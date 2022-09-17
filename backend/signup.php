@@ -41,8 +41,8 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
         }
         // check if username is valid and contains only english letter and digits and is at least 4 characters long
         else if (!preg_match('/^\w{5,}$/', $username)) {
-            throw new Exception("Unvalid username.");
-            // check if password length is at least 8 characters
+            throw new Exception((strlen($username) < 5) ? "Username too short, it must contain at least 5 characters" : "Unvalid username, it must be consistent of letters and digits only");
+            // check if password length is at least 8 characters    
         } else if (strlen($password) < 8) {
             throw new Exception("Password should be at least 8 characters.");
         } else {
