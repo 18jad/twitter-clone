@@ -13,6 +13,15 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
 
     $response;
 
+    // check if username already exists in database
+    function checkUsername($username)
+    {
+        global $db;
+        $username_check_sql = "SELECT username FROM users WHERE username = '$username'";
+        $username_query = mysqli_query($db, $username_check_sql);
+        return (mysqli_num_rows($username_query) >= 1);
+    }
+
     try {
         // check if passwords are identical
         if ($password !== $repeatedPassword) {
@@ -28,6 +37,10 @@ if (isset($_POST['fullname'], $_POST['username'], $_POST['email'], $_POST['passw
         } else if (strlen($password) < 8) {
             throw new Exception("Password should be at least 8 characters.");
         } else {
+            // if username already exist throw error
+            if (checkUsername($username)) {
+                throw new Exception("Username already take");
+            }
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $sql_query = "INSERT INTO users(full_name, username, email, `password`) VALUE(?, ?, ?, ?)";
             $query = $db->prepare($sql_query);
