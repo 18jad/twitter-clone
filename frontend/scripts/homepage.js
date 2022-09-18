@@ -217,7 +217,8 @@ const createTweet = (user_id, text, image = undefined) => {
     fetch('/twitter-clone/backend/tweet.php', settings)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            alert("Tweet uploaded.");
+            window.location.reload()
         })
 }
 
@@ -264,7 +265,7 @@ const loadFollowingsTweets = (user_id) => {
                         <div class="post-header">
                             <div class="user-info">
                                 <a href="/twitter-clone/frontend/profile.html?user_id=${tweet.userId}"><span class="full-name">${tweetName}</span>
-                                    <span class="username" id="username">${tweetUsername}</span>
+                                    <span class="username" id="username">@${tweetUsername}</span>
                                     <span> - </span>
                                     <span id="postTime" class="post-time">${tweet.tweetDate}</span>
                                 </a>
