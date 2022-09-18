@@ -235,4 +235,19 @@ modalTweetForm.addEventListener('submit', (e) => {
     createTweet(user_id, tweetText);
 })
 
-// load tweets
+// load followings tweets
+const loadFollowingsTweets = (user_id) => {
+    const settings = {
+        method: 'POST',
+        body: new URLSearchParams({
+            user_id
+        })
+    }
+    fetch("/twitter-clone/backend/getUserFollowigPosts.php", settings)
+        .then(res => res.json())
+        .then(data => console.log(data))
+}
+
+setTimeout(() => {
+    loadFollowingsTweets(user_id)
+}, 1000)
