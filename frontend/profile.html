@@ -22,9 +22,10 @@
                 <a href="./homepage.html"><i class="fa-brands fa-twitter"></i></a>
                 <div class="nav-list">
                     <ul>
-                        <li class="nav-link"><a href="./homepage.html" class="active"><i class="fa-solid fa-house"></i>
+                        <li class="nav-link"><a href="./homepage.html"><i class="fa-solid fa-house"></i>
                                 Home</a></li>
-                        <li class="nav-link"><a href="./profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+                        <li class="nav-link"><a href="./profile.html" class="active"><i class="fa-solid fa-user"></i>
+                                Profile</a></li>
                     </ul>
                     <button class="tweet-btn">Tweet</button>
                 </div>
@@ -32,8 +33,8 @@
             <div class="navigation-bottom mini-profile">
                 <img src="" alt="profile picture" class="profile-picture sm">
                 <div class="user-names">
-                    <p class="full-name" id="fullName">Your name</p>
-                    <p class="username" id="username">@your_username</p>
+                    <p class="full-name" id="fullName"></p>
+                    <p class="username" id="username"></p>
                 </div>
                 <i class="fa-solid fa-ellipsis"></i>
             </div>
@@ -42,7 +43,7 @@
             <div class="profile-heading">
                 <a href="./homepage.html"><i class="fa-solid fa-arrow-left"></i></a>
                 <div class="user-header-info">
-                    <div class="header-name bold">Your name</div>
+                    <div class="header-name bold"></div>
                     <div class="tweets-counter-container"><span id="tweets-counter">100</span> Tweets</div>
                 </div>
             </div>
@@ -146,8 +147,8 @@
                     <i class="fa-solid fa-xmark close-modal"></i>
                     <h3>Edit profile</h3>
                 </div>
-                <button id="save-profile">Save</button>
             </div>
+            <p id="edit-result"></p>
             <div class="modal-body">
                 <div class="modal-profile">
                     <img src="https://assets-global.website-files.com/5ec7dad2e6f6295a9e2a23dd/6222481c0ad8761618b18e7e_profile-picture.jpg"
@@ -168,6 +169,8 @@
                         <p>Enter a bio</p>
                         <textarea type="text" placeholder="Enter a bio" id="newBio"></textarea>
                     </div>
+                    <button id="save-profile" type="submit">Save</button>
+
                 </form>
             </div>
         </div>
