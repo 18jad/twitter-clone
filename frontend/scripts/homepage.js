@@ -135,6 +135,8 @@ tweetTextAreas.forEach(textArea => {
 
 
 
+
+
 /*
     Sign out button
 */
@@ -223,7 +225,8 @@ const createTweet = (user_id, text, image = undefined) => {
 tweetForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let tweetText = tweetTextArea.value;
-    createTweet(user_id, tweetText);
+    let tweetImage = uploadImageInput.files[0] || null;
+    createTweet(user_id, tweetText, tweetImage);
 })
 
 modalTweetForm.addEventListener('submit', (e) => {
@@ -231,3 +234,5 @@ modalTweetForm.addEventListener('submit', (e) => {
     let tweetText = modalTweetTextArea.value;
     createTweet(user_id, tweetText);
 })
+
+// load tweets
