@@ -198,7 +198,6 @@ window.onload = () => {
         - Load tweets on screen
 */
 
-let tweetElement;
 
 const tweetForm = document.getElementById('post_form'),
     tweetTextArea = document.getElementById('tweetTextArea'),
@@ -236,6 +235,46 @@ modalTweetForm.addEventListener('submit', (e) => {
 })
 
 // load followings tweets
+
+const postsContainer = document.querySelector('.posts-container');
+
+let tweetElement = `
+    <div class="tweet">
+                    <a href=""><img
+                            src="./assets/blank-profile-picture.png"
+                            alt="Profile picture" class="profile-picture md"></img></a>
+                    <div class="tweet-content">
+                        <div class="post-header">
+                            <div class="user-info">
+                                <a href=""><span class="full-name" id="fullName">Your name</span>
+                                    <span class="username" id="username">@your_username</span>
+                                    <span> - </span>
+                                    <span id="postTime" class="post-time">2h</span>
+                                </a>
+                            </div>
+                            <div class="tweet-setting">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit orci, laoreet eu
+                                molestie nec, laoreet id orci.
+                                Donec mattis, quam at faucibus aliquet, sem felis semper risus, sed egestas augue ante a
+                                dolor. Morbi ac placerat orci.
+                                Praesent congue pretium ultricies. Sed turpis erat, bibendum nec lobortis at, luctus id
+                                tortor.</p>
+                            <div class="post-image-container">
+                                <img src="" id="postImage">
+                            </div>
+                            <div class="likes-section">
+                                <button id="likeBtn" class="like-btn"> <i class="fa-regular fa-heart"></i><span
+                                        id="likeAmount">100</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+`
+
 const loadFollowingsTweets = (user_id) => {
     const settings = {
         method: 'POST',
@@ -245,7 +284,50 @@ const loadFollowingsTweets = (user_id) => {
     }
     fetch("/twitter-clone/backend/getUserFollowigPosts.php", settings)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            data.tweets.forEach(tweet => {
+                // console.log(tweet.useid)
+                fetch(`/twitter-clone/backend/getUserInfo.php/?user_id=${tweet.userId}`)
+                    .then(res => res.json())
+                    .then((data) => {
+                        let tweetName = data.fullName;
+                        let tweetUsername = data.username;
+                        let tweetElement = `
+            <div class="tweet">
+                    <a href=""><img
+                            src="./assets/blank-profile-picture.png"
+                            alt="Profile picture" class="profile-picture md"></img></a>
+                    <div class="tweet-content">
+                        <div class="post-header">
+                            <div class="user-info">
+                                <a href="/twitter-clone/frontend/profile.html?user_id=${tweet.userId}"><span class="full-name">${tweetName}</span>
+                                    <span class="username" id="username">${tweetUsername}</span>
+                                    <span> - </span>
+                                    <span id="postTime" class="post-time">${tweet.tweetDate}</span>
+                                </a>
+                            </div>
+                            <div class="tweet-setting">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>${tweet.tweetText}</p>
+                            <div class="post-image-container">
+                                <img src="" id="postImage">
+                            </div>
+                            <div class="likes-section">
+                                <button id="likeBtn" class="like-btn"> <i class="fa-regular fa-heart"></i><span
+                                        id="likeAmount">${tweet.likes}</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+`
+                        postsContainer.innerHTML += tweetElement;
+                    })
+            })
+
+        })
 }
 
 setTimeout(() => {

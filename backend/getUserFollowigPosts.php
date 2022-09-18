@@ -15,7 +15,7 @@ if (isset($_POST['user_id'])) {
     $tweets = [];
 
     while ($row = $result->fetch_assoc()) {
-        $tweets["tweets"][] = ["tweetText" => $row['tweet_text'], "tweetDate" => $row['tweet_date'], "tweetImage" => $row['tweet_image'], "likes" => $row['likes'], "tweetId" => $row['tweet_id']];
+        $tweets["tweets"][] = ["tweetText" => $row['tweet_text'], "tweetDate" => $row['tweet_date'], "tweetImage" => $row['tweet_image'], "likes" => $row['likes'], "tweetId" => $row['tweet_id'], "userId" => $row['user_id']];
     }
     echo json_encode($tweets);
 } else {

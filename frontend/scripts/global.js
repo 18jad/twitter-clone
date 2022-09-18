@@ -17,16 +17,17 @@ const auth_token = getCookie('auth_token');
         -Tweet anmation when entering the screen
 */
 
-const tweets = document.querySelectorAll('.tweet');
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show-tweet')
-        } else {
-            entry.target.classList.remove('show-tweet')
-        }
+const obs = setInterval(() => {
+    const tweets = document.querySelectorAll('.tweet');
+    if (tweets.length > 0) clearInterval(obs)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show-tweet')
+            } else {
+                entry.target.classList.remove('show-tweet')
+            }
+        })
     })
-})
-
-tweets.forEach(tweet => observer.observe(tweet))
+    tweets.forEach(tweet => observer.observe(tweet))
+}, 500)
