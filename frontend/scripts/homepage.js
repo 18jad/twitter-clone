@@ -6,8 +6,10 @@ const tweetModalContainer = document.querySelector('.tweet-modal-container'),
     uploadImageBtn = document.getElementById('imageBtn'),
     uploadImageInput = document.getElementById('uploadedImageInput'),
     uploadedImage = document.getElementById('uploadedImage'),
-    tweetTextAreas = document.querySelectorAll('#tweetTextArea');
+    tweetTextAreas = [document.getElementById('tweetTextArea'), document.getElementById('modalTweetTextArea')];
 
+
+let user_id;
 /*
     Tweet Modal:
         -Open and close function
@@ -116,8 +118,10 @@ const checkMaxCharacters = (input) => {
         input.style.borderColor = "red";
     } else {
         // remove red effect
-        input.style.border = "1px solid transparent";
-        input.style.background = "var(--white)";
+        if (input.style.background == "rgba(247, 65, 65, 0.2)") {
+            input.style.border = "1px solid transparent";
+            input.style.background = "var(--white)";
+        }
     }
 }
 
@@ -194,6 +198,50 @@ const getUserDetails = (user_id) => {
 }
 
 window.onload = () => {
-    let user_id = getCookie('user_id');
+    user_id = getCookie('user_id');
     getUserDetails(user_id)
 }
+
+/*
+    Tweets:
+        - Check user text field
+        - Check if user uploaded an iamge
+        - Create tweet and store it into database linked to user_id
+        - Load tweets on screen
+*/
+
+let tweetElement;
+
+const tweetForm = document.getElementById('post_form'),
+    tweetTextArea = document.getElementById('tweetTextArea'),
+    modalTweetForm = document.getElementById('modal_post_form'),
+    modalTweetTextArea = document.getElementById('modalTweetTextArea')
+
+const createTweet = (user_id, text, image = undefined) => {
+    if (text.length <= 0) return;
+    const settings = {
+        method: 'POST',
+        body: new URLSearchParams({
+            user_id,
+            "tweet_text": text,
+            "tweet_image": image
+        })
+    }
+    fetch('/twitter-clone/backend/tweet.php', settings)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+}
+
+tweetForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let tweetText = tweetTextArea.value;
+    createTweet(user_id, tweetText);
+})
+
+modalTweetForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let tweetText = modalTweetTextArea.value;
+    createTweet(user_id, tweetText);
+})
