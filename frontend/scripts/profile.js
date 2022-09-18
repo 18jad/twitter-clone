@@ -131,7 +131,7 @@ if (userIdParam != null && userIdParam && userIdParam != user_id) {
                         <div class="post-header">
                             <div class="user-info">
                                 <a href="/twitter-clone/frontend/profile.html?user_id=${userIdParam}"><span class="full-name">${tempname}</span>
-                                    <span class="username" id="username">${tempusername}</span>
+                                    <span class="username" id="username">@${tempusername}</span>
                                     <span> - </span>
                                     <span id="postTime" class="post-time">${tweet.tweetDate}</span>
                                 </a>
@@ -224,6 +224,51 @@ if (userIdParam != null && userIdParam && userIdParam != user_id) {
                     oldBio = data.bioText;
                     followingCounter.textContent = data.followings;
                     followersCounter.textContent = data.followers;
+                    const set = {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            "user_id": data.userId
+                        })
+                    }
+                    fetch(`/twitter-clone/backend/getUserTweets.php`, set)
+                        .then(res => res.json())
+                        .then(d => {
+                            console.log(d);
+                            d.tweets.forEach(tweet => {
+                                let tweetElement = `
+            <div class="tweet">
+                    <a href=""><img
+                            src="./assets/blank-profile-picture.png"
+                            alt="Profile picture" class="profile-picture md"></img></a>
+                    <div class="tweet-content">
+                        <div class="post-header">
+                            <div class="user-info">
+                                <a href="/twitter-clone/frontend/profile.html?user_id=${data.userId}"><span class="full-name">${data.fullName}</span>
+                                    <span class="username" id="username">@${data.username}</span>
+                                    <span> - </span>
+                                    <span id="postTime" class="post-time">${tweet.tweetDate}</span>
+                                </a>
+                            </div>
+                            <div class="tweet-setting">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>${tweet.tweetText}</p>
+                            <div class="post-image-container">
+                                <img src="" id="postImage">
+                            </div>
+                            <div class="likes-section">
+                                <button id="likeBtn" class="like-btn"> <i class="fa-regular fa-heart"></i><span
+                                        id="likeAmount">${tweet.likes}</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+`
+                                postsContainer.innerHTML += tweetElement;
+                            })
+                        })
                 })
             })
     }
