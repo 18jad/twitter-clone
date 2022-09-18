@@ -30,7 +30,8 @@
     width: 100%;
 }
 
-#tweetTextArea {
+#tweetTextArea,
+#modalTweetTextArea {
     width: 100%;
     border: none;
     outline: none;
@@ -145,7 +146,7 @@
     opacity: 1;
 }
 
-.tweet-modal #tweetTextArea {
+.tweet-modal #modalTweetTextArea {
     height: 44px;
     border-radius: 10px;
     padding: 10px;
