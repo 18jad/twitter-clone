@@ -238,43 +238,6 @@ modalTweetForm.addEventListener('submit', (e) => {
 
 const postsContainer = document.querySelector('.posts-container');
 
-let tweetElement = `
-    <div class="tweet">
-                    <a href=""><img
-                            src="./assets/blank-profile-picture.png"
-                            alt="Profile picture" class="profile-picture md"></img></a>
-                    <div class="tweet-content">
-                        <div class="post-header">
-                            <div class="user-info">
-                                <a href=""><span class="full-name" id="fullName">Your name</span>
-                                    <span class="username" id="username">@your_username</span>
-                                    <span> - </span>
-                                    <span id="postTime" class="post-time">2h</span>
-                                </a>
-                            </div>
-                            <div class="tweet-setting">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit orci, laoreet eu
-                                molestie nec, laoreet id orci.
-                                Donec mattis, quam at faucibus aliquet, sem felis semper risus, sed egestas augue ante a
-                                dolor. Morbi ac placerat orci.
-                                Praesent congue pretium ultricies. Sed turpis erat, bibendum nec lobortis at, luctus id
-                                tortor.</p>
-                            <div class="post-image-container">
-                                <img src="" id="postImage">
-                            </div>
-                            <div class="likes-section">
-                                <button id="likeBtn" class="like-btn"> <i class="fa-regular fa-heart"></i><span
-                                        id="likeAmount">100</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-`
-
 const loadFollowingsTweets = (user_id) => {
     const settings = {
         method: 'POST',
