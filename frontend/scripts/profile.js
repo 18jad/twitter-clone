@@ -234,8 +234,27 @@ if (userIdParam != null && userIdParam && userIdParam != user_id) {
         - User follow each other
 */
 
+let followingStatus;
+
 if (!isBlocked || !userBlocked) {
+    const checkFollow = () => {
+        fetch(`/twitter-clone/backend/checkFollow.php/?first_user_id=${user_id}&second_user_id=${userIdParam}`)
+            .then(res => res.json())
+            .then(data => {
+                followingStatus = data.following;
+                if (followingStatus) {
+                    // unfollow
+                    followBtn.textContent = "Following";
+                    followBtn.classList.add('following')
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+    }
+
     const followUser = (following_id, followed_id) => {
+        console.log("Test")
         const settings = {
             method: 'POST',
             body: new URLSearchParams({
@@ -250,7 +269,7 @@ if (!isBlocked || !userBlocked) {
                 if (data.status == 200) {
                     const userFollow = fullNameText.textContent;
                     showToast('Success', `You have succesfully followed ${userFollow}`)
-                    followBtn.textContent = "Followed";
+                    followBtn.textContent = "Following";
                     followBtn.classList.add('following')
                 } else {
                     showToast('Error', data.message)
@@ -260,7 +279,11 @@ if (!isBlocked || !userBlocked) {
             })
     }
 
+    checkFollow();
     followBtn.addEventListener('click', () => {
-        followUser(userIdParam, user_id);
+        checkFollow();
+        if (!followingStatus) {
+            followUser(userIdParam, user_id);
+        }
     })
 }
