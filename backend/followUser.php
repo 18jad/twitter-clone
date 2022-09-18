@@ -25,6 +25,16 @@ if (isset($_POST['following_id'], $_POST['followed_user_id'], $_POST['auth_token
                 $follow_query->bind_param("ii", $followingId, $followedUserId);
                 $follow_query->execute();
                 echo json_encode(["status" => 200, "message" => "Successfully followed"]);
+
+                // increase following counter
+                $following_counter_sql = "UPDATE users SET `following` = (SELECT COUNT(*) FROM follow WHERE followed_user_id='$followedUserId') WHERE `user_id`='$followedUserId'";
+                $following_counter_query = $db->prepare($following_counter_sql);
+                $following_counter_query->execute();
+
+                // increase followers counter
+                $followers_counter_sql = "UPDATE users SET `followers` = (SELECT COUNT(*) FROM follow WHERE following_id='$followingId') WHERE `user_id`='$followingId'";
+                $followers_counter_query = $db->prepare($followers_counter_sql);
+                $followers_counter_query->execute();
             } else {
                 echo json_encode(["status" => 405, "message" => "You are already follwing this user."]);
             }
