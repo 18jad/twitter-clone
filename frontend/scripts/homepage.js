@@ -180,8 +180,12 @@ const getUserDetails = (user_id) => {
 }
 
 window.onload = () => {
-    user_id = getCookie('user_id');
-    getUserDetails(user_id)
+    if (document.cookie.indexOf('auth_token=') == -1) {
+        window.location = '/twitter-clone/frontend/';
+    } else {
+        user_id = getCookie('user_id');
+        getUserDetails(user_id)
+    }
 }
 
 /*
