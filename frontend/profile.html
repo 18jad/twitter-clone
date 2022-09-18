@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="shortcut icon" href="./assets/blue-logo.png" type="image/png" />
     <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/profile.js" defer></script>
     <title>Profile / Twitter</title>
 </head>
 
@@ -51,9 +52,10 @@
                     <div class="first-part">
                         <div class="profile-pic-container">
                             <img src="https://assets-global.website-files.com/5ec7dad2e6f6295a9e2a23dd/6222481c0ad8761618b18e7e_profile-picture.jpg"
-                            alt="profile picture" class="profile-picture vbg">
-                            <button class="mobile-edit" id="profileEdit"><i class="fa-regular fa-pen-to-square"></i></button>
-                            </div>
+                                alt="profile picture" class="profile-picture vbg">
+                            <button class="mobile-edit" id="profileEdit"><i
+                                    class="fa-regular fa-pen-to-square"></i></button>
+                        </div>
                         <div class="followers">
                             <span>
                                 <span class="following-counter bold">100 </span>
@@ -141,6 +143,37 @@
             <footer>
                 © 2022 Twitter Clone, Inc.
             </footer>
+        </div>
+        <div class="edit-profile-modal">
+            <div class="modal-header">
+                <div class="left-header">
+                    <i class="fa-solid fa-xmark close-modal"></i>
+                    <h3>Edit profile</h3>
+                </div>
+                <button id="save-profile">Save</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-profile">
+                    <img src="https://assets-global.website-files.com/5ec7dad2e6f6295a9e2a23dd/6222481c0ad8761618b18e7e_profile-picture.jpg"
+                        alt="profile pic" class="profile-picture vbg">
+                    <button class="modal-change-profile">Change profile</button>
+                    <input type="file" id="profileChange">
+                </div>
+                <form class="edit-profile-form">
+                    <div>
+                        <p>Enter a new name</p>
+                        <input type="text" placeholder="Enter new name" id="newName">
+                    </div>
+                    <div>
+                        <p>Enter a new username</p>
+                        <input type="text" placeholder="Enter a bio" id="newUsername">
+                    </div>
+                    <div>
+                        <p>Enter a bio</p>
+                        <textarea type="text" placeholder="Enter a bio" id="newBio"></textarea>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 </body>
