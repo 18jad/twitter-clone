@@ -5,7 +5,7 @@ $db = $connection->connect();
 
 if (isset($_POST['user_id'])) {
     $user_id = $_POST['user_id'];
-    $user_tweets_sql = "SELECT * FROM tweets WHERE `user_id`='$user_id'";
+    $user_tweets_sql = "SELECT * FROM tweets WHERE `user_id`='$user_id' ORDER BY tweet_date DESC";
     $user_tweets_query = $db->prepare($user_tweets_sql);
     $user_tweets_query->execute();
     $query_result = $user_tweets_query->get_result();

@@ -7,7 +7,7 @@ $db = $connection->connect();
 if (isset($_POST['user_id'])) {
     $user_id = $_POST['user_id'];
 
-    $sql = "SELECT * FROM tweets INNER JOIN follow WHERE follow.followed_user_id = $user_id AND tweets.user_id = follow.following_id";
+    $sql = "SELECT * FROM tweets INNER JOIN follow WHERE follow.followed_user_id = $user_id AND tweets.user_id = follow.following_id ORDER BY tweets.tweet_date DESC";
     $query = $db->prepare($sql);
     $query->execute();
     $result = $query->get_result();
