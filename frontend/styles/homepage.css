@@ -1,0 +1,207 @@
+@import "./global.css";
+
+.tweeting-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 14px;
+    gap: 20px;
+    border-bottom: 1.5px solid var(--light-gray);
+}
+
+.page-title {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.post-container {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 13px;
+    width: 100%;
+}
+
+#tweetTextArea,
+#modalTweetTextArea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    resize: none;
+    border-radius: 5px;
+    padding: 3px 3px 0 5px;
+    border: 1px solid transparent;
+    transition: background 0.15s ease-in-out, border 0.15s ease-in-out;
+}
+
+#uploadedImage {
+    border-radius: 10px;
+    max-height: 280px;
+    max-width: 450px;
+    object-fit: cover;
+}
+
+.tweet-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.tweet-btn-container #imageBtn {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    outline: none;
+    padding: 5px 15px;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 150ms ease-in-out;
+}
+
+.tweet-btn-container #imageBtn:hover {
+    background: #56d1f71a;
+}
+
+.tweet-btn-container button[type="submit"] {
+    background: var(--cyan);
+    color: var(--white);
+    outline: none;
+    padding: 5px 15px;
+    border-radius: var(--btn-radius);
+    border: 1px solid var(--cyan);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: filter 150ms ease-in-out;
+}
+
+.tweet-btn-container button[type="submit"]:hover {
+    filter: brightness(.9);
+}
+
+.tweet-modal-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    pointer-events: none;
+    transition: background 150ms ease-in-out;
+}
+
+.tweet-modal {
+    position: absolute;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: fit-content;
+    translate: 0 -300px;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    transition: translate 250ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+#closeModal {
+    font-size: 20px;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: color 150ms ease-in;
+}
+
+#closeModal:hover {
+    color: var(--gray);
+}
+
+.show-modal-container {
+    background: #4d9add46;
+    pointer-events: unset;
+}
+
+.show-modal {
+    translate: 0 0;
+    opacity: 1;
+}
+
+.tweet-modal #modalTweetTextArea {
+    height: 44px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid var(--light-gray);
+    max-height: 200px !important;
+}
+
+#uploadedImageInput {
+    display: none;
+    opacity: 0;
+}
+
+.imageFileName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+/* 
+
+ RESPONSIVE DESIGN
+
+ SCREEN ONLY, WIDTH AVAILABLE:
+    WIDTH < 1000PX : SMALL DESKTOP SCREEN AND TABLETS
+    WIDTH < 600PX  : MOBILES
+
+ MORE @ global.css
+ */
+
+.page-title-mobile {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--light-gray);
+    width: 100%;
+    padding: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    .page-title-mobile {
+        display: flex;
+    }
+
+    .page-title {
+        display: none;
+    }
+
+    .tweeting-container {
+        padding: 0;
+        gap: 0;
+    }
+
+    .tweet-modal-container {
+        display: none;
+        pointer-events: none;
+    }
+}

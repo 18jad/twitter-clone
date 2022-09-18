@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/profile.css">
+    <!-- font awesome icons stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="shortcut icon" href="./assets/blue-logo.png" type="image/png" />
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/profile.js" defer></script>
+    <title>Profile / Twitter</title>
+</head>
+
+<body>
+    <main>
+        <div class="navigation-side-bar">
+            <div class="navigation-top">
+                <a href="./homepage.html"><i class="fa-brands fa-twitter"></i></a>
+                <div class="nav-list">
+                    <ul>
+                        <li class="nav-link"><a href="./homepage.html"><i class="fa-solid fa-house"></i>
+                                Home</a></li>
+                        <li class="nav-link"><a href="./profile.html" class="active"><i class="fa-solid fa-user"></i>
+                                Profile</a></li>
+                    </ul>
+                    <button class="tweet-btn">Tweet</button>
+                </div>
+            </div>
+            <div class="navigation-bottom mini-profile">
+                <img src="https://pbs.twimg.com/profile_images/1505190392572125191/A3E8RtAQ_bigger.jpg"
+                    alt="profile picture" class="profile-picture sm">
+                <div class="user-names">
+                    <p class="full-name" id="fullName"></p>
+                    <p class="username" id="username"></p>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+        </div>
+        <div class="feed-section">
+            <div class="profile-heading">
+                <a href="./homepage.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <div class="user-header-info">
+                    <div class="header-name bold"></div>
+                    <div class="tweets-counter-container"><span id="tweets-counter">100</span> Tweets</div>
+                </div>
+            </div>
+            <div class="profile-user-info">
+                <div class="user-background-image" id="userBackgroundImage"></div>
+                <div class="side-pic">
+                    <div class="first-part">
+                        <div class="profile-pic-container">
+                            <img src="./assets/blank-profile-picture.png" alt="profile picture"
+                                class="profile-picture vbg">
+                            <button class="mobile-edit" id="profileEdit"><i
+                                    class="fa-regular fa-pen-to-square"></i></button>
+                        </div>
+                        <div class="followers">
+                            <span>
+                                <span class="following-counter bold"> </span>
+                                Following
+                            </span>
+                            <span>
+                                <span class="followers-counter bold"> </span>
+                                Followers
+                            </span>
+                        </div>
+                    </div>
+                    <div class="profile-btns">
+                        <button id="profileEdit" class="web-edit">Edit Profile</button>
+                        <button id="followUser" class="">Follow</button>
+                        <button class="blockBtn"><i class="fa-solid fa-ban"></i></button>
+                    </div>
+                </div>
+                <div class="bio">
+                    <div class="bioUserNames">
+                        <p class="full-name bold" id="bioFullName">Your name</p>
+                        <p class="username" id="bioUsername">@your_username</p>
+                    </div>
+                    <p class="bio-text">This is your bio</p>
+                </div>
+            </div>
+            <div class="viewed-section bold">Tweets</div>
+            <div class="posts-container">
+                <div class="block-container">
+                    <h2 class="block-feed">This user has blocked you</h2>
+                </div>
+            </div>
+        </div>
+        <div class="navigation-side-right">
+            <div class="top-side">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search Twitter" id="searchInput">
+                </div>
+                <div class="suggested-people">
+                    <h3>You might like</h3>
+                    <div class="suggested-users">
+                        <div class="suggested-user">
+                            <img src="https://pbs.twimg.com/profile_images/1505190392572125191/A3E8RtAQ_bigger.jpg"
+                                alt="" class="profile-picture sm">
+                            <div class="suggested-user-info">
+                                <p class="full-name">Your name</p>
+                                <p class="username">@your_username</p>
+                            </div>
+                            <button id="suggestedPeopleFollowBtn" class="followBtn">Follow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                © 2022 Twitter Clone, Inc.
+            </footer>
+        </div>
+        <div class="edit-profile-modal">
+            <div class="modal-header">
+                <div class="left-header">
+                    <i class="fa-solid fa-xmark close-modal"></i>
+                    <h3>Edit profile</h3>
+                </div>
+            </div>
+            <p id="edit-result"></p>
+            <div class="modal-body">
+                <div class="modal-profile">
+                    <img src="https://assets-global.website-files.com/5ec7dad2e6f6295a9e2a23dd/6222481c0ad8761618b18e7e_profile-picture.jpg"
+                        alt="profile pic" class="profile-picture vbg">
+                    <button class="modal-change-profile">Change profile</button>
+                    <input type="file" id="profileChange">
+                </div>
+                <form class="edit-profile-form">
+                    <div>
+                        <p>Enter a new name</p>
+                        <input type="text" placeholder="Enter new name" id="newName">
+                    </div>
+                    <div>
+                        <p>Enter a new username</p>
+                        <input type="text" placeholder="Enter a bio" id="newUsername">
+                    </div>
+                    <div>
+                        <p>Enter a bio</p>
+                        <textarea type="text" placeholder="Enter a bio" id="newBio"></textarea>
+                    </div>
+                    <button id="save-profile" type="submit">Save</button>
+
+                </form>
+            </div>
+        </div>
+        <div class="toast">
+            <div class="toast-content">
+                <i class="fas fa-solid fa-check check"></i>
+
+                <div class="message">
+                    <span class="text text-1" id="toast-head"></span>
+                    <span class="text text-2" id="toast-body"></span>
+                </div>
+            </div>
+            <i class="fa-solid fa-xmark close"></i>
+
+            <div class="progress"></div>
+        </div>
+    </main>
+</body>
+
+</html>

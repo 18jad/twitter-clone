@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="shortcut icon" href="./assets/blue-logo.png" type="image/png" />
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
+    <title>Twitter. It's what's happening / Twitter</title>
+</head>
+
+<body>
+    <section>
+        <div class="left-banner">
+            <i class="fa-brands fa-twitter"></i>
+            <img src="./assets/landing.png" alt="landing banner" class="landing-banner">
+        </div>
+        <div class="auth-side">
+            <i class="fa-brands fa-twitter"></i>
+            <div class="content">
+                <div class="top">
+                    <h1>Happening now</h1>
+                    <h2>Join Twitter today.</h2>
+                    <button class="sign-up-btn">Sign up with email</button>
+                </div>
+                <div class="bottom">
+                    <h3>Already have an account?</h3>
+                    <button class="sign-in-btn">Sign in</button>
+                </div>
+            </div>
+        </div>
+        <div class="sign-in-modal">
+            <header>
+                <i class="fa-solid fa-xmark" id="close_sign_in_modal"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </header>
+            <div class="sign-in-form">
+                <h2>Sign in to Twitter</h2>
+                <p id="signInResult"></p>
+                <form class="form-inputs" id="signInForm">
+                    <input type="text" name="email" id="signInEmail" placeholder="Enter your email or username"
+                        required>
+                    <input type="password" name="password" id="signInPassword" placeholder="Enter your password"
+                        required>
+                    <button class="form-sign-in-btn">Sign in</button>
+                </form>
+                <button class="form-forget">Forget password</button>
+                <p class="form-footer">Don't have an account? <span class="sign-up-switch">Sign up</span></p>
+            </div>
+        </div>
+        <div class="sign-up-modal">
+            <header>
+                <i class="fa-solid fa-xmark" id="close_sign_up_modal"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </header>
+            <div class="sign-up-form">
+                <h2>Sign up to Twitter</h2>
+                <p id="signUpResult" class="">
+                </p>
+                <form class="form-inputs" id="signUpForm">
+                    <input type="text" name="fullname" id="fullName" placeholder="Enter your full name" required>
+                    <input type="text" name="username" id="signUpUsername" placeholder="Choose a username" required>
+                    <input type="email" name="email" id="signUpEmail" placeholder="Enter your email address" required>
+                    <input type="password" name="password" id="signUpPassword" placeholder="New password" required>
+                    <input type="password" name="repeatedPassword" id="signUpConfirmPassword"
+                        placeholder="Confirm password" required>
+                    <button class="form-sign-up-btn">Sign up</button>
+                </form>
+                <button class="form-forget">Forget password</button>
+                <p class="form-footer">Already have an account? <span class="sign-in-switch">Sign in</span> </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        @ 2022 Twitter Clone - Team 16 (Jad, Dalia)
+    </footer>
+</body>
+
+</html>

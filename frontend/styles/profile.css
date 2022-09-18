@@ -1,0 +1,556 @@
+@import "./global.css";
+
+.profile-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 13px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.profile-heading i {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.user-header-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-header-info .header-name,
+.tweets-counter-container {
+    font-size: 14px;
+}
+
+.tweets-counter-container {
+    color: var(--gray);
+}
+
+.profile-user-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 20px;
+}
+
+.user-background-image {
+    background: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    height: 250px;
+    max-height: 300px;
+    width: 100%;
+}
+
+.side-pic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    margin-top: -80px;
+}
+
+.first-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.side-pic img {
+    border: 8px solid var(--white);
+    cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.followers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 85px 0;
+}
+
+.followers span {
+    font-size: 14px;
+}
+
+a i {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.web-edit {
+    background: transparent;
+    color: var(--black);
+    border-radius: var(--btn-radius);
+    border: 1.3px solid currentColor;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 150ms ease-in-out;
+}
+
+#followUser {
+    background: var(--cyan);
+    color: var(--white);
+    border-radius: var(--btn-radius);
+    border: 1.3px solid currentColor;
+    padding: 8px 18px;
+    margin-top: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 150ms ease-in-out;
+}
+
+.following {
+    background: rgb(243, 106, 106) !important;
+}
+
+.web-edit:hover {
+    background: #0001;
+}
+
+#followUser:hover {
+    opacity: 0.8;
+}
+
+.profile-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.blockBtn {
+    background: rgb(243, 106, 106) !important;
+    padding: 6px;
+    border-radius: 100px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gray);
+    color: white;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+.blockBtn i {
+    font-size: 18px;
+}
+
+.blockBtn:hover {
+    opacity: 0.8;
+}
+
+.hide-btn {
+    display: none;
+    scale: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.bio {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+    padding-bottom: 25px;
+}
+
+.bioUserNames {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bio .full-name,
+.bio .username {
+    font-size: 15px;
+}
+
+.bio .username {
+    color: var(--gray);
+}
+
+.bio-text {
+    overflow-wrap: anywhere;
+    word-break: break-all;
+}
+
+.bio-text,
+.bio-location {
+    font-size: 14px;
+}
+
+.bio-location {
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.viewed-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: -26px;
+    border-bottom: 4px solid var(--cyan);
+    width: 100px;
+    border-radius: 3px;
+    font-size: 15px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+/*  */
+
+.profile-pic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mobile-edit {
+    aspect-ratio: 1/1;
+    font-size: 16px;
+    padding: 0 9px;
+    border-radius: 50px;
+    border: none;
+    margin-top: -27px;
+    z-index: 10;
+    cursor: pointer;
+    background: var(--white);
+    box-shadow: inset 0 -3px 0 var(--light-gray);
+    display: none;
+}
+
+.edit-profile-modal {
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    translate: -100px -430px;
+    scale: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: translate 300ms ease-in-out, opacity 300ms ease-in-out, scale 300ms ease-in-out;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 100%;
+    background: var(--cyan);
+    padding: 20px;
+}
+
+#save-profile {
+    background: var(--cyan);
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 8px 25px;
+    border-radius: 100px;
+    transition: opacity 200ms ease-in-out;
+    cursor: pointer;
+}
+
+#save-profile:hover {
+    opacity: 0.8;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.modal-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 20px 0 60px;
+    gap: 30px;
+}
+
+.modal-body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.edit-profile-form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 30px;
+}
+
+#newName,
+#newUsername,
+#newBio {
+    padding: 13px 18px;
+    width: 300px;
+    border: 2px solid var(--light-gray);
+    border-radius: 100px;
+    background: var(--white);
+    font-size: 17px;
+    outline: none;
+    transition: border 200ms ease-in-out;
+    margin-top: 5px;
+}
+
+#newBio {
+    border-radius: 10px;
+    height: 150px;
+    resize: none;
+}
+
+#profileChange {
+    display: none;
+}
+
+.modal-change-profile {
+    cursor: pointer;
+    background: var(--cyan);
+    color: white;
+    padding: 10px 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 100px;
+    transition: opacity 200ms ease-in-out;
+}
+
+.modal-change-profile:hover {
+    opacity: 0.8;
+}
+
+.close-modal {
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity 200ms ease-in-out;
+}
+
+.close-modal:hover {
+    opacity: 0.5;
+}
+
+.show-edit-modal {
+    opacity: 1;
+    translate: 0;
+    scale: 1;
+    pointer-events: unset;
+}
+
+#edit-result {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    white-space: wrap;
+    text-align: center;
+    max-width: 95%;
+}
+
+.success-edit {
+    background: rgb(113, 238, 113);
+}
+
+.failed-edit {
+    background: rgb(238, 113, 113);
+}
+
+.toast {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    border-left: 4px solid #4070f4;
+    border-top: 4px solid #4070f4;
+    border-right: 4px solid #4070f4;
+    overflow: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast.active {
+    transform: translateX(0%);
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast-content .check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: #4070f4;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.toast-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.message .text {
+    font-size: 20px;
+    font-weight: 400;
+    ;
+    color: #666666;
+}
+
+.message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.toast .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: #ddd;
+}
+
+.toast .progress:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+}
+
+.progress.active:before {
+    animation: progress 5s linear forwards;
+}
+
+.block-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 20%;
+    display: none;
+    pointer-events: none;
+}
+
+.block-feed {
+    text-align: left;
+}
+
+.show-block-container {
+    display: flex;
+    pointer-events: unset;
+}
+
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
+
+.toast.active~button {
+    pointer-events: none;
+}
+
+@media screen and (max-width: 740px) {
+    .web-edit {
+        display: none;
+    }
+
+    .mobile-edit {
+        display: block;
+        ;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .side-pic {
+        justify-content: center;
+    }
+
+    .first-part {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .followers {
+        margin: 0 0 18px 0;
+    }
+
+    .bio {
+        width: 100%;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .bio-text {
+        text-align: center;
+    }
+
+    .bioUserNames {
+        align-items: center;
+    }
+}
